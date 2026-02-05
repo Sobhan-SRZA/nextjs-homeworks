@@ -1,8 +1,5 @@
-import React from 'react'
-
-throw new Error("this page is in the development!")
-
 const ErrorHandle = () => {
+    throw new Error("this page is in the development!")
     return (
         <div>
             ErrorHandle test
