@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 function Home() {
   return (
     <>
@@ -7,6 +9,10 @@ function Home() {
       <p className="mt-3">
         Welcome to this project.
       </p>
+
+      <Link href={"/about"}>
+      Go to About page
+      </Link>
     </>
   )
 }
