@@ -2,17 +2,17 @@ import { ReactNode } from "react"
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
-      <div>
+    <main>
+      <header>
         NavBar
-      </div>
+      </header>
 
       {children}
 
-      <div>
+      <footer>
         Footer
-      </div>
-    </div>
+      </footer>
+    </main>
   )
 }
 
