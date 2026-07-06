@@ -13,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function SignUp() {
     const [name, setName] = useState("");
@@ -25,14 +24,22 @@ export default function SignUp() {
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
+
+        setError("");
+        setLoading(true);
+
+        try {
+
+        }
+
+        catch (e) {
+            setError("An unexpected error occurred")
+        }
+
+        finally {
+            setLoading(false);
+        }
     }
-
-    return (
-        <div className="flex items-center justify-center p-50">
-        <Image  width={100} height={100} alt="image" src={"https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/express/express-original.svg"}/>
-
-        </div>
-    )
 
     return (
         <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-white p-4">
@@ -47,7 +54,10 @@ export default function SignUp() {
                     </CardDescription>
                 </CardHeader>
 
-                <form className="space-y-4">
+                <form
+                    className="space-y-4"
+                    onSubmit={handleSubmit}
+                >
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
                             <Label htmlFor="name" className="text-gray-700">
