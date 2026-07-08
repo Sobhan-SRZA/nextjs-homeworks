@@ -27,23 +27,23 @@ const DEFAULT_COLUMNS = [
     }
 ]
 
-export async function inializeUserBoard(userId: string) {
+export async function initializeUserBoard(userId: string) {
     try {
         await connectDB();
 
         // chack board existing
-        const existBoard = Board.findOne({
+        const existingBoard = Board.findOne({
             userId,
-            name: "Job Hint"
+            name: "Job Hunt"
         });
 
-        if (existBoard) {
-            return existBoard;
+        if (existingBoard) {
+            return existingBoard;
         }
 
         // create board
         const board = await Board.create({
-            name: "Job Hint",
+            name: "Job Hunt",
             userId,
             columns: []
         })
