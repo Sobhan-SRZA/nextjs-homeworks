@@ -5,10 +5,20 @@ import {
   Calendar,
   CheckCircle2,
   Mic,
+  MoreHorizontal,
   XCircle
 } from "lucide-react";
-import { Board, Column } from "@/lib/models/models.types";
-import { Card, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle
+} from "./ui/card";
+import {
+  Board,
+  Column
+} from "@/lib/models/models.types";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { Button } from "./ui/button";
 
 interface KanbanBoardProbs {
   board: Board;
@@ -60,6 +70,21 @@ function DroppableColumn({ column, config, boardId }: DroppableColumnProbs) {
               {column.name}
             </CardTitle>
           </div>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button variant="ghost">
+                <MoreHorizontal />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent>
+              <DropdownMenuGroup>
+
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
         </div>
       </CardHeader>
     </Card>
