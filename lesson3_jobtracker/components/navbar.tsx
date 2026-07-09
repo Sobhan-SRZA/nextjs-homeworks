@@ -43,7 +43,7 @@ export default function Navbar() {
                                 </Link>
 
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger render={
+                                    <DropdownMenuTrigger>
                                         <Button
                                             variant="ghost"
                                             className="relative h-8 w-8 rounded-full"
@@ -54,7 +54,7 @@ export default function Navbar() {
                                                 </AvatarFallback>
                                             </Avatar>
                                         </Button>
-                                    } />
+                                    </DropdownMenuTrigger>
 
                                     <DropdownMenuContent className="w-56" align="end">
                                         <DropdownMenuGroup>
