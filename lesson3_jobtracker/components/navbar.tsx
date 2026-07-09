@@ -46,9 +46,9 @@ export default function Navbar() {
                                     <DropdownMenuTrigger>
                                         <Button
                                             variant="ghost"
-                                            className="relative h-8 w-8 rounded-full"
+                                            className="relative size-8 rounded-full"
                                         >
-                                            <Avatar className="h-8 w-8">
+                                            <Avatar className="size-8">
                                                 <AvatarFallback className="bg-primary text-white">
                                                     {session.user.name[0].toUpperCase()}
                                                 </AvatarFallback>
@@ -67,7 +67,6 @@ export default function Navbar() {
 
                                             {/* sign out button */}
                                             <SignOutButton />
-
                                         </DropdownMenuGroup>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
