@@ -37,8 +37,8 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="grid gap-12 md:grid-cols-3">
               <div className="flex flex-col">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
+                <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10">
+                  <Briefcase className="size-6 text-primary" />
                 </div>
                 <h3 className="mb-3 text-2xl font-semibold text-black">
                   Organize Applications
@@ -49,8 +49,8 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <TrendingUp className="h-6 w-6 text-primary" />
+                <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10">
+                  <TrendingUp className="size-6 text-primary" />
                 </div>
                 <h3 className="mb-3 text-2xl font-semibold text-black">
                   Track Progress
@@ -61,8 +61,8 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <CheckCircle2 className="h-6 w-6 text-primary" />
+                <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10">
+                  <CheckCircle2 className="size-6 text-primary" />
                 </div>
                 <h3 className="mb-3 text-2xl font-semibold text-black">
                   Stay Organized
