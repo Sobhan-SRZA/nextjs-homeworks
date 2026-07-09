@@ -32,7 +32,7 @@ export async function initializeUserBoard(userId: string) {
         await connectDB();
 
         // chack board existing
-        const existingBoard = Board.findOne({
+        const existingBoard = await Board.findOne({
             userId,
             name: "Job Hunt"
         });
