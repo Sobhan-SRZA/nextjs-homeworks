@@ -6,7 +6,7 @@ export interface JobApplication {
   status: string;
   notes?: string;
   salary?: string;
-  jobUrl?: string;
+  jobURL?: string;
   order: number;
   columnId?: string;
   tags?: string[];
