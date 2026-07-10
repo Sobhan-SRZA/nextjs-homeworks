@@ -68,7 +68,7 @@ export default function JobApplicationCard({ columns, job }: JobApplicationCardP
                                     onClick={(e) => e.stopPropagation()}
                                     className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
                                 >
-                                    <ExternalLink />
+                                    <ExternalLink className="size-3" />
                                 </a>
                             )}
                         </div>
