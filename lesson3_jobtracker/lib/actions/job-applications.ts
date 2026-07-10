@@ -15,7 +15,7 @@ interface JobApplicationData {
     location?: string;
     notes?: string;
     salary?: string;
-    jobUrl?: string;
+    jobURL?: string;
     columnId: string;
     boardId: string;
     tags?: string[];
@@ -37,7 +37,7 @@ export async function createJobApplication(data: JobApplicationData) {
         location,
         notes,
         salary,
-        jobUrl,
+        jobURL,
         columnId,
         boardId,
         tags,
@@ -81,7 +81,7 @@ export async function createJobApplication(data: JobApplicationData) {
         location,
         notes,
         salary,
-        jobUrl,
+        jobURL,
         columnId,
         boardId,
         userId: session.user.id,
