@@ -1,6 +1,6 @@
 import {
-    MongoClient,
-    ServerApiVersion
+    Db,
+    MongoClient
 } from "mongodb";
 import { initializeUserBoard } from "../init-user-board";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
@@ -10,14 +10,20 @@ import { headers } from "next/headers";
 import connectDB from "../db";
 
 const mongooseInstance = await connectDB();
-const client = mongooseInstance.connection.getClient();
-const db = client.db();
+const client = mongooseInstance.connection.getClient() as any as MongoClient;
+const db = client.db() as any as Db;
 
 export const auth = betterAuth({
-    //@ts-ignore
     database: mongodbAdapter(db, {
         client
     }),
+
+    session: {
+        cookieCache: {
+            enabled: true,
+            maxAge: 60 * 60
+        }
+    },
 
     emailAndPassword: {
         enabled: true
