@@ -55,7 +55,11 @@ async function DashboardPage() {
 
 export default async function Dashboard() {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense
+      fallback={
+        <p>Loading...</p>
+      }
+    >
       <DashboardPage />
     </Suspense>
   );
