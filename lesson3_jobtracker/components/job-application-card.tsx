@@ -1,3 +1,5 @@
+"use client";
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -62,7 +64,7 @@ export default function JobApplicationCard({ columns, job }: JobApplicationCardP
                             {job.jobURL && (
                                 <a
                                     target="_blank"
-                                    href={job.jobURL}
+                                    href={job.jobURL.startsWith("http") ? `${job.jobURL}` : `https://${job.jobURL}`}
                                     onClick={(e) => e.stopPropagation()}
                                     className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
                                 >
@@ -73,7 +75,7 @@ export default function JobApplicationCard({ columns, job }: JobApplicationCardP
 
                         <div className="flex items-start gap-1">
                             <DropdownMenu>
-                                <DropdownMenuTrigger >
+                                <DropdownMenuTrigger>
                                     <Button
                                         variant="ghost"
                                         size="icon"
