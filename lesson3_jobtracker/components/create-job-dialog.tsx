@@ -9,6 +9,7 @@ import {
     DialogTitle,
     DialogTrigger
 } from "./ui/dialog";
+import { createJobApplication } from "@/lib/actions/job-applications";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { Button } from "./ui/button";
