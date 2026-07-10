@@ -92,7 +92,7 @@ export async function createJobApplication(data: JobApplicationData) {
     });
 
     await Column.findByIdAndUpdate(columnId, {
-        $push: { jobApplications: jobApplication._id },
+        $push: { jobApplications: jobApplication._id }
     });
 
     revalidatePath("/dashboard");
