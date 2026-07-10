@@ -233,10 +233,10 @@ async function seed() {
         // Distribute jobs across columns
         const jobsByColumn: Record<string, typeof SAMPLE_JOBS> = {
             "Wish List": SAMPLE_JOBS.slice(0, 3),
-            Applied: SAMPLE_JOBS.slice(3, 7),
-            Interviewing: SAMPLE_JOBS.slice(7, 10),
-            Offer: SAMPLE_JOBS.slice(10, 12),
-            Rejected: SAMPLE_JOBS.slice(12, 15)
+            "Applied": SAMPLE_JOBS.slice(3, 7),
+            "Interviewing": SAMPLE_JOBS.slice(7, 10),
+            "Offer": SAMPLE_JOBS.slice(10, 12),
+            "Rejected": SAMPLE_JOBS.slice(12, 15)
         };
 
         let totalCreated = 0;
