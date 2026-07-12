@@ -31,7 +31,7 @@ export function useBoard(initialBoard?: Board | null) {
     setColumns((prev) => {
       const newColumns = prev.map((col) => ({
         ...col,
-        jobApplications: [...col.jobApplications],
+        jobApplications: [...col.jobApplications]
       }));
 
       // Find and remove job from the old column
@@ -43,12 +43,15 @@ export function useBoard(initialBoard?: Board | null) {
         const jobIndex = col.jobApplications.findIndex(
           (j) => j._id === jobApplicationId
         );
+
         if (jobIndex !== -1 && jobIndex !== undefined) {
           jobToMove = col.jobApplications[jobIndex];
           oldColumnId = col._id;
+
           col.jobApplications = col.jobApplications.filter(
             (job) => job._id !== jobApplicationId
           );
+
           break;
         }
       }
@@ -57,6 +60,7 @@ export function useBoard(initialBoard?: Board | null) {
         const targetColumnIndex = newColumns.findIndex(
           (col) => col._id === newColumnId
         );
+
         if (targetColumnIndex !== -1) {
           const targetColumn = newColumns[targetColumnIndex];
           const currentJobs = targetColumn.jobApplications || [];
@@ -65,17 +69,17 @@ export function useBoard(initialBoard?: Board | null) {
           updatedJobs.splice(newOrder, 0, {
             ...jobToMove,
             columnId: newColumnId,
-            order: newOrder * 100,
+            order: newOrder * 100
           });
 
           const jobsWithUpdatedOrders = updatedJobs.map((job, idx) => ({
             ...job,
-            order: idx * 100,
+            order: idx * 100
           }));
 
           newColumns[targetColumnIndex] = {
             ...targetColumn,
-            jobApplications: jobsWithUpdatedOrders,
+            jobApplications: jobsWithUpdatedOrders
           };
         }
       }
@@ -84,9 +88,9 @@ export function useBoard(initialBoard?: Board | null) {
     });
 
     try {
-      const result = await updateJobApplication(jobApplicationId, {
+      await updateJobApplication(jobApplicationId, {
         columnId: newColumnId,
-        order: newOrder,
+        order: newOrder
       });
     }
 
