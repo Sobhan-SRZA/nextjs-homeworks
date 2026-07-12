@@ -243,7 +243,7 @@ export async function updateJobApplication(
     }
 
     const updated = await JobApplication.findByIdAndUpdate(id, updatesToApply, {
-        new: true,
+        new: true
     });
 
     revalidatePath("/dashboard");
