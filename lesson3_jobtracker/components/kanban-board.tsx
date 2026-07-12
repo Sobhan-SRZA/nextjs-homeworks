@@ -26,11 +26,10 @@ import {
   Column,
   JobApplication
 } from "@/lib/models/models.types";
+import { useBoard } from "@/lib/hooks/useBoards";
 import { Button } from "./ui/button";
 import CreateJobApplicationDialog from "./create-job-dialog";
-import board from "@/lib/models/board";
 import JobApplicationCard from "./job-application-card";
-import { useBoard } from "@/lib/hooks/useBoards";
 
 interface KanbanBoardProbs {
   board: Board;
