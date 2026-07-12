@@ -1,4 +1,4 @@
-"use clinet";
+"use client"
 
 import {
   Award,
@@ -150,6 +150,7 @@ function SortableJobCard({ columns, job }: SortableJobCardProbs) {
 }
 
 export default function KanbanBoard({ board, userId }: KanbanBoardProbs) {
+
   const { columns, moveJob } = useBoard(board);
 
   const sortedColumns = columns.sort((a, b) => a.order - b.order) || [];
