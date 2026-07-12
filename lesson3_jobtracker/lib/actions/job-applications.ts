@@ -176,16 +176,16 @@ export async function updateJobApplication(
                     $set: { order: job.order + 100 }
                 });
             }
-        } 
-        
+        }
+
         else {
             if (jobsInTargetColumn.length > 0) {
                 const lastJobOrder =
                     jobsInTargetColumn[jobsInTargetColumn.length - 1].order || 0;
-                    
+
                 newOrderValue = lastJobOrder + 100;
             }
-            
+
             else {
                 newOrderValue = 0;
             }
@@ -198,7 +198,7 @@ export async function updateJobApplication(
             $push: { jobApplications: id }
         });
     }
-    
+
     else if (order !== undefined && order !== null) {
         const otherJobsInColumn = await JobApplication.find({
             columnId: currentColumnId,
@@ -228,7 +228,7 @@ export async function updateJobApplication(
                 });
             }
         }
-        
+
         else if (order > oldPositionindex) {
             const jobsToShiftUp = otherJobsInColumn.slice(oldPositionindex, order);
             for (const job of jobsToShiftUp) {
@@ -249,4 +249,32 @@ export async function updateJobApplication(
     revalidatePath("/dashboard");
 
     return { data: JSON.parse(JSON.stringify(updated)) };
+}
+
+export async function deleteJobApplication(id: string) {
+    const session = await getSession();
+
+    if (!session?.user) {
+        return { error: "Unauthorized" };
+    }
+
+    const jobApplication = await JobApplication.findById(id);
+
+    if (!jobApplication) {
+        return { error: "Job application not found" };
+    }
+
+    if (jobApplication.userId !== session.user.id) {
+        return { error: "Unauthorized" };
+    }
+
+    await Column.findByIdAndUpdate(jobApplication.columnId, {
+        $pull: { jobApplications: id }
+    });
+
+    await JobApplication.deleteOne({ _id: id });
+
+    revalidatePath("/dashboard");
+
+    return { success: true };
 }
