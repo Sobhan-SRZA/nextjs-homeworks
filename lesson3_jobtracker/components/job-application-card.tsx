@@ -41,10 +41,11 @@ import { Input } from "./ui/input";
 
 interface JobApplicationCardProbs {
     job: JobApplication;
-    columns: Column[]
+    columns: Column[];
+    dragHandleProps?: React.HTMLAttributes<HTMLElement>;
 }
 
-export default function JobApplicationCard({ columns, job }: JobApplicationCardProbs) {
+export default function JobApplicationCard({ columns, job, dragHandleProps }: JobApplicationCardProbs) {
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
         company: job.company,
@@ -109,6 +110,7 @@ export default function JobApplicationCard({ columns, job }: JobApplicationCardP
         <>
             <Card
                 className="cursor-pointer transition-shadow hover:shadow-lg bg-white group shadow-sm"
+                {...dragHandleProps}
             >
                 <CardContent className="p-4">
                     <div className="flex items-start justify-between gap-2">
