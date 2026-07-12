@@ -22,6 +22,10 @@ import {
     Trash2
 } from "lucide-react";
 import {
+    deleteJobApplication,
+    updateJobApplication
+} from "@/lib/actions/job-applications";
+import {
     Column,
     JobApplication
 } from "@/lib/models/models.types"
@@ -29,7 +33,6 @@ import {
     Card,
     CardContent
 } from "./ui/card";
-import { updateJobApplication } from "@/lib/actions/job-applications";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -81,6 +84,20 @@ export default function JobApplicationCard({ columns, job }: JobApplicationCardP
             await updateJobApplication(job._id, {
                 columnId: newColumnId
             });
+        }
+
+        catch (e) {
+            console.error("Failed to move job application: ", e);
+        }
+    }
+
+    async function handleDelete() {
+        try {
+            const result = await deleteJobApplication(job._id);
+
+            if (result.error) {
+                console.error("Failed to delete job application:", result.error);
+            }
         }
 
         catch (e) {
@@ -166,6 +183,7 @@ export default function JobApplicationCard({ columns, job }: JobApplicationCardP
 
                                         <DropdownMenuItem
                                             className="text-destructive"
+                                            onClick={() => handleDelete()}
                                         >
                                             <Trash2 className="mr-2 size-4" />
                                             Delete
