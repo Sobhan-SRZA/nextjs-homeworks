@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` text-center gap-5 flex flex-col`}
+        className={`text-center gap-5 flex flex-col`}
       >
         {children}
       </body>
