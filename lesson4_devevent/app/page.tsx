@@ -1,16 +1,6 @@
 import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
-
-const events = [
-  {
-    image: "/images/event1.png",
-    title: "Event 1"
-  },
-  {
-    image: "/images/event2.png",
-    title: "Event 2"
-  }
-]
+import events from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -25,9 +15,9 @@ export default function Home() {
 
         <ul className="events">
           {
-            events
+            events && events.length > 0 && events
               .map((event) => (
-                <li key={event.title}>
+                <li key={event.title} className="list-none">
                   <EventCard {...event} />
                 </li>
               ))
