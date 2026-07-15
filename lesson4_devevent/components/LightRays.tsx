@@ -11,6 +11,7 @@ import {
     useEffect,
     useState
 } from "react";
+import posthog from "posthog-js";
 
 export type RaysOrigin =
     | "top-center"
@@ -37,6 +38,28 @@ interface LightRaysProps {
     noiseAmount?: number;
     distortion?: number;
     className?: string;
+}
+
+interface UniformValue<T> {
+    value: T;
+}
+
+interface LightRaysUniforms {
+    iTime: UniformValue<number>;
+    iResolution: UniformValue<[number, number]>;
+    rayPos: UniformValue<[number, number]>;
+    rayDir: UniformValue<[number, number]>;
+    raysColor: UniformValue<[number, number, number]>;
+    raysSpeed: UniformValue<number>;
+    lightSpread: UniformValue<number>;
+    rayLength: UniformValue<number>;
+    pulsating: UniformValue<number>;
+    fadeDistance: UniformValue<number>;
+    saturation: UniformValue<number>;
+    mousePos: UniformValue<[number, number]>;
+    mouseInfluence: UniformValue<number>;
+    noiseAmount: UniformValue<number>;
+    distortion: UniformValue<number>;
 }
 
 const DEFAULT_COLOR = "#ffffff";
@@ -96,12 +119,12 @@ const LightRays: React.FC<LightRaysProps> = ({
     className = "",
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const uniformsRef = useRef<any>(null);
+    const uniformsRef = useRef<LightRaysUniforms | null>(null);
     const rendererRef = useRef<Renderer | null>(null);
     const mouseRef = useRef({ x: 0.5, y: 0.5 });
     const smoothMouseRef = useRef({ x: 0.5, y: 0.5 });
     const animationIdRef = useRef<number | null>(null);
-    const meshRef = useRef<any>(null);
+    const meshRef = useRef<Mesh | null>(null);
     const cleanupFunctionRef = useRef<(() => void) | null>(null);
     const [isVisible, setIsVisible] = useState(false);
     const observerRef = useRef<IntersectionObserver | null>(null);
@@ -259,7 +282,7 @@ void main() {
   gl_FragColor  = color;
 }`;
 
-            const uniforms = {
+            const uniforms: LightRaysUniforms = {
                 iTime: { value: 0 },
                 iResolution: { value: [1, 1] },
 
@@ -335,6 +358,14 @@ void main() {
                     renderer.render({ scene: mesh });
                     animationIdRef.current = requestAnimationFrame(loop);
                 } catch (error) {
+                    posthog.captureException(error, {
+                        component: "light_rays",
+                        stage: "render_loop",
+                    });
+                    posthog.capture("light_rays_render_error", {
+                        component: "light_rays",
+                        stage: "render_loop",
+                    });
                     console.warn("WebGL rendering error:", error);
                     return;
                 }
@@ -365,6 +396,14 @@ void main() {
                             canvas.parentNode.removeChild(canvas);
                         }
                     } catch (error) {
+                        posthog.captureException(error, {
+                            component: "light_rays",
+                            stage: "cleanup",
+                        });
+                        posthog.capture("light_rays_render_error", {
+                            component: "light_rays",
+                            stage: "cleanup",
+                        });
                         console.warn("Error during WebGL cleanup:", error);
                     }
                 }
