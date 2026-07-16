@@ -1,8 +1,24 @@
 import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
 import events from "@/lib/constants";
+import { cacheLife } from "next/cache";
 
-export default function Home() {
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+const isTesting = true;
+
+export default async function Home() {
+  'use cache';
+  let eventsList = events;
+
+  cacheLife('hours')
+  const response = await fetch(`${BASE_URL}/api/events`);
+  const { events: fetchedEvents } = await response.json();
+
+  if (fetchedEvents && !isTesting) {
+    eventsList = fetchedEvents;
+  }
+
   return (
     <section>
       <h1 className="text-center">The Hub for Every Dev <br /> Event You Can&apos;t Miss</h1>
@@ -15,7 +31,7 @@ export default function Home() {
 
         <ul className="events">
           {
-            events && events.length > 0 && events
+            eventsList && eventsList.length > 0 && eventsList
               .map((event) => (
                 <li key={event.title} className="list-none">
                   <EventCard {...event} />
