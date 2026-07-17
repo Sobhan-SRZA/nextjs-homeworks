@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import posthog from "posthog-js";
@@ -7,7 +7,7 @@ const ExploreBtn = () => {
     const handleClick = () => {
         posthog.capture("explore_events_clicked", {
             destination: "featured_events",
-            trigger: "hero_cta",
+            trigger: "hero_cta"
         });
     };
 
