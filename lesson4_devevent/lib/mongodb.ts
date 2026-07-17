@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 // Define the connection cache type
 type MongooseCache = {
@@ -38,9 +38,10 @@ async function connectDB(): Promise<typeof mongoose> {
     // Validate MongoDB URI exists
     if (!MONGODB_URI) {
       throw new Error(
-        'Please define the MONGODB_URI environment variable inside .env.local'
+        "Please define the MONGODB_URI environment variable inside .env.local"
       );
     }
+    
     const options = {
       bufferCommands: false, // Disable Mongoose buffering
     };
@@ -54,9 +55,12 @@ async function connectDB(): Promise<typeof mongoose> {
   try {
     // Wait for the connection to establish
     cached.conn = await cached.promise;
-  } catch (error) {
+  } 
+  
+  catch (error) {
     // Reset promise on error to allow retry
     cached.promise = null;
+
     throw error;
   }
 
