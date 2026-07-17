@@ -5,7 +5,7 @@ import { cacheLife } from "next/cache";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const isTesting = true;
+const isTesting = false;
 
 export default async function Home() {
   'use cache';
