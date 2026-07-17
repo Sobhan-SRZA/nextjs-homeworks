@@ -1,4 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+import {
+    NextRequest,
+    NextResponse
+} from "next/server";
 import { v2 as cloudinary } from 'cloudinary';
 
 import connectDB from "@/lib/mongodb";
