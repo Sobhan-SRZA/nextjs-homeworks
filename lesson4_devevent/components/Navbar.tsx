@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
+import posthog from "posthog-js";
 import Image from "next/image";
 import Link from "next/link";
-import posthog from "posthog-js";
 
 export default function Navbar() {
     const handleCreateEventClick = () => {
