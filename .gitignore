@@ -40,4 +40,4 @@
 # typescript
 */*.tsbuildinfo
 
-.claude
+*/.claude/
