@@ -8,10 +8,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const isTesting = true;
 
 export default async function Home() {
-  'use cache';
+  "use cache";
   let eventsList = events;
 
-  cacheLife('hours')
+  cacheLife("hours")
   const response = await fetch(`${BASE_URL}/api/events`);
   const { events: fetchedEvents } = await response.json();
 
