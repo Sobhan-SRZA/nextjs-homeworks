@@ -29,9 +29,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: "Invalid JSON data format" }, { status: 400 });
         }
         
-        console.log("🚀 ~ POST ~ event:", event)
         const file = formData.get("image") as File;
-        console.log("🚀 ~ POST ~ file:", file)
 
         if (!file)
             return NextResponse.json({ message: "Image file is required" }, { status: 400 });
@@ -49,7 +47,6 @@ export async function POST(req: NextRequest) {
             useUniqueFileName: true
         });
 
-        console.log("🚀 ~ POST ~ uploadResult:", uploadResult);
 
         event.image = uploadResult.url;
 
