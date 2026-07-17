@@ -49,6 +49,7 @@ export default async function EventDetails({ params }: { params: Promise<string>
             if (request.status === 404) {
                 return notFound();
             }
+
             throw new Error(`Failed to fetch event: ${request.statusText}`);
         }
 
@@ -58,14 +59,29 @@ export default async function EventDetails({ params }: { params: Promise<string>
         if (!event) {
             return notFound();
         }
-    } catch (error) {
-        console.error('Error fetching event:', error);
+    }
+
+    catch (e) {
+        console.error('Error fetching event:', e);
         return notFound();
     }
 
-    const { description, image, overview, date, time, location, mode, agenda, audience, tags, organizer } = event;
+    const {
+        description,
+        image,
+        overview,
+        date,
+        time,
+        location,
+        mode,
+        agenda,
+        audience,
+        tags,
+        organizer
+    } = event;
 
-    if (!description) return notFound();
+    if (!description)
+        return notFound();
 
     const bookings = 10;
 
