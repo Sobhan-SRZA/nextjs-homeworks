@@ -19,7 +19,7 @@ export default function EventCard({ title, image, slug, location, date, time }: 
             event_slug: slug,
             event_title: title,
             location,
-            event_date: date,
+            event_date: date
         });
     };
 
