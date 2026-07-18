@@ -1,7 +1,9 @@
+import Container from "@/components/Container";
+
 export default function Page() {
   return (
-    <div>
+    <Container>
         <h1>Store</h1>
-    </div>
+    </Container>
   )
 }
