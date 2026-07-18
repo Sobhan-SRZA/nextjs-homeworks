@@ -1,9 +1,10 @@
+import Container from "@/components/Container";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <Container>
+      <h1>خانه</h1>
+    </Container>
   );
 }
