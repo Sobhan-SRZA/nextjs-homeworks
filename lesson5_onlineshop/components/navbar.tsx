@@ -8,11 +8,11 @@ export default function Navbar() {
     const navLinks = [
         {
             href: "/",
-            title: "Home"
+            title: "خانه"
         },
         {
             href: "/store",
-            title: "Store"
+            title: "فروشگاه"
         }
     ];
 
@@ -21,17 +21,19 @@ export default function Navbar() {
     return (
         <nav className="shadow p-4">
             <Container>
-                {
-                    navLinks.map(
-                        link => (
-                            <Link
-                                key={link.href}
-                                className={`mr-4${pathName === link.href ? " text-sky-500" : ""}`}
-                                href={link.href}
-                            >{link.title}</Link>
+                <div className="flex flex-row-reverse">
+                    {
+                        navLinks.map(
+                            link => (
+                                <Link
+                                    key={link.href}
+                                    className={`mr-4${pathName === link.href ? " text-sky-500" : ""}`}
+                                    href={link.href}
+                                >{link.title}</Link>
+                            )
                         )
-                    )
-                }
+                    }
+                </div>
             </Container>
         </nav>
     )
