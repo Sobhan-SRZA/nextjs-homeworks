@@ -21,13 +21,13 @@ export default function Navbar() {
     return (
         <nav className="shadow p-4">
             <Container>
-                <div className="flex flex-row-reverse">
+                <div className="flex flex-row-reverse gap-4">
                     {
                         navLinks.map(
                             link => (
                                 <Link
                                     key={link.href}
-                                    className={`mr-4${pathName === link.href ? " text-sky-500" : ""}`}
+                                    className={`${pathName === link.href ? " text-sky-500" : ""}`}
                                     href={link.href}
                                 >{link.title}</Link>
                             )
