@@ -21,18 +21,24 @@ export default function Navbar() {
     return (
         <nav className="shadow p-4">
             <Container>
-                <div className="flex flex-row-reverse gap-4">
-                    {
-                        navLinks.map(
-                            link => (
-                                <Link
-                                    key={link.href}
-                                    className={`${pathName === link.href ? " text-sky-500" : ""}`}
-                                    href={link.href}
-                                >{link.title}</Link>
+                <div className="flex flex-row-reverse justify-between gap-4">
+                    <div className="flex gap-4">
+                        {
+                            navLinks.map(
+                                link => (
+                                    <Link
+                                        key={link.href}
+                                        className={`${pathName === link.href ? " text-sky-500" : ""}`}
+                                        href={link.href}
+                                    >{link.title}</Link>
+                                )
                             )
-                        )
-                    }
+                        }
+                    </div>
+
+                    <div>
+                        <Link href={"/cart"}>سبد خرید</Link>
+                    </div>
                 </div>
             </Container>
         </nav>
