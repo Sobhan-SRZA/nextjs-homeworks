@@ -1,38 +1,10 @@
 import Container from "@/components/Container";
-import ProductItem from "@/components/ProductItem";
+import ProductItem, { ProductItemProbs } from "@/components/ProductItem";
 import Link from "next/link";
 
-export default function Page() {
-  const products = [
-    {
-      id: "1",
-      title: "محصول 1",
-      image: "/images/product 1.png",
-      price: 1200,
-      description: "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-    },
-    {
-      id: "2",
-      title: "محصول 2",
-      image: "/images/product 2.png",
-      price: 600,
-      description: "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-    },
-    {
-      id: "3",
-      title: "محصول 3",
-      image: "/images/product 3.png",
-      price: 31231,
-      description: "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-    },
-    {
-      id: "4",
-      title: "محصول 4",
-      image: "/images/product 4.png",
-      price: 1200,
-      description: "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-    }
-  ];
+export default async function Page() {
+  const result = await fetch("http://localhost:3001/products");
+  const products = await result.json() as ProductItemProbs[];
 
   return (
     <Container>
@@ -43,13 +15,13 @@ export default function Page() {
           products.map(
             (product) => (
               <Link
-              key={product.id}
-              href={`/store/${product.id}`}
+                key={product.id}
+                href={`/store/${product.id}`}
               >
-              <ProductItem
-                {...product}
+                <ProductItem
+                  {...product}
                 />
-                </Link>
+              </Link>
             )
           )
         }
