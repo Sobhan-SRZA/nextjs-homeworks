@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import ProductItem from "@/components/ProductItem";
+import Link from "next/link";
 
 export default function Page() {
   const products = [
@@ -41,10 +42,14 @@ export default function Page() {
         {
           products.map(
             (product) => (
+              <Link
+              key={product.id}
+              href={`/store/${product.id}`}
+              >
               <ProductItem
-                key={product.id}
                 {...product}
-              />
+                />
+                </Link>
             )
           )
         }
