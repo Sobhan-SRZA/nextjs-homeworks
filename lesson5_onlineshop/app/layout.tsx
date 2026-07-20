@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Layout from "@/components/Layout";
 
 import "./globals.css";
+import ShoppingCartContextProvider from "@/context/ShoppingCartContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,9 +20,11 @@ export default function RootLayout({
       className={`h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Layout>
-          {children}
-        </Layout>
+        <ShoppingCartContextProvider>
+          <Layout>
+            {children}
+          </Layout>
+        </ShoppingCartContextProvider>
       </body>
     </html>
   );
