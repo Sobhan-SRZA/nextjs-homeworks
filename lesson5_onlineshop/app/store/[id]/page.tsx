@@ -1,5 +1,6 @@
 import { ProductItemProbs } from "@/components/ProductItem";
 import Container from "@/components/Container";
+import AddToCart from "@/components/AddToCart";
 
 interface ProductProbs { params: Promise<{ id: string; }> }
 
@@ -20,11 +21,7 @@ export default async function Product({
 
                     <p className="font-bold">قیمت <span>{product.price}$</span></p>
 
-                    <div className="mt-4">
-                        <button className="px-4 py-2 rounded-2xl bg-sky-500">+</button>
-                        <span className="mx-4">3</span>
-                        <button className="px-4 py-2 rounded-2xl bg-sky-500">-</button>
-                    </div>
+                    <AddToCart id={id} />
                 </div>
 
                 <div className="col-span-3">
