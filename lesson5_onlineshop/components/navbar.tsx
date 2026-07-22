@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Container from "./Container";
+import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 
 export default function Navbar() {
     const navLinks = [
@@ -17,6 +18,8 @@ export default function Navbar() {
     ];
 
     const pathName = usePathname();
+
+    const { cartTotalQty } = useShoppingCartContext();
 
     return (
         <nav className="shadow p-4">
@@ -37,6 +40,7 @@ export default function Navbar() {
                     </div>
 
                     <div>
+                        <span className="px-2 py-1 bg-red-600 rounded-full">{cartTotalQty}</span>
                         <Link href={"/cart"}>سبد خرید</Link>
                     </div>
                 </div>
