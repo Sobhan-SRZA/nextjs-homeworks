@@ -1,3 +1,5 @@
+import { formatNumberWithCommas } from "@/utils/number";
+
 export interface ProductItemProbs {
     id: string;
     title: string;
@@ -13,7 +15,7 @@ export default function ProductItem({ image, price, title }: ProductItemProbs) {
 
             <div className="p-2 text-right rtl">
                 <h3 className="font-bold">{title}</h3>
-                <p>قیمت <span>{price}$</span></p>
+                <p>قیمت <span>{formatNumberWithCommas(price ?? 0)}$</span></p>
             </div>
         </div>
     )

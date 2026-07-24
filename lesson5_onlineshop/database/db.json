@@ -28,5 +28,22 @@
             "price": 1200,
             "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
         }
+    ],
+    "discounts": [
+        {
+            "id": "1",
+            "code": "DIJC54",
+            "percentage": 10
+        },
+        {
+            "id": "2",
+            "code": "A56SDAC",
+            "percentage": 20
+        },
+        {
+            "id": "3",
+            "code": "KHJASC635",
+            "percentage": 30
+        }
     ]
 }

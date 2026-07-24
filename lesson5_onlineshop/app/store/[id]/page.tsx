@@ -1,3 +1,4 @@
+import { formatNumberWithCommas } from "@/utils/number";
 import { ProductItemProbs } from "@/components/ProductItem";
 import Container from "@/components/Container";
 import AddToCart from "@/components/AddToCart";
@@ -19,7 +20,7 @@ export default async function Product({
 
                     <p className="text-gray-300">{product.description}</p>
 
-                    <p className="font-bold">قیمت <span>{product.price}$</span></p>
+                    <p className="font-bold">قیمت <span>{formatNumberWithCommas(product.price ?? 0)}$</span></p>
 
                     <AddToCart id={id} />
                 </div>
