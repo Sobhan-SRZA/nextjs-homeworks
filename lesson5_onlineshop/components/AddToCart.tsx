@@ -9,7 +9,12 @@ interface AddToCartProbs {
 export default function AddToCart({
     id
 }: AddToCartProbs) {
-    const { handleIncreaseProductQty, handleDecreaseProductQty, handleRemoveProduct, getProductQty } = useShoppingCartContext();
+    const {
+        handleIncreaseProductQty,
+        handleDecreaseProductQty,
+        handleRemoveProduct,
+        getProductQty
+    } = useShoppingCartContext();
 
     return (
         <div>
