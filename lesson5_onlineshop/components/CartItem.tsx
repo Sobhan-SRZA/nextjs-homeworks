@@ -1,24 +1,43 @@
-export default function CartItem() {
+import {
+    useEffect,
+    useState
+} from "react";
+import { ProductItemProbs } from "./ProductItem";
+import AddToCart from "./AddToCart";
+import axios from "axios";
+
+interface CartItemProbs {
+    id: number;
+    qty: number;
+}
+
+export default function CartItem({ id, qty }: CartItemProbs) {
+    const [data, setData] = useState({} as ProductItemProbs);
+
+    useEffect(() => {
+        axios(`http://localhost:3001/products/${id}`)
+            .then((result) => {
+                const { data } = result;
+                setData(data);
+            });
+    }, [])
+
     return (
         <div className="grid grid-cols-12 bg-gray-700">
             <div className="col-span-10 rtl p-4">
-                <h2 className="text-xl font-bold">محصول 1</h2>
+                <h2 className="text-xl font-bold">{data.title}</h2>
 
-                <p>تعداد: <span>3</span></p>
+                <p>تعداد: <span>{qty}</span></p>
 
-                <p>قیمت محصول: <span>45$</span></p>
+                <p>قیمت محصول: <span>{data.price}$</span></p>
 
-                <div className="mt-4">
-                    <button className="px-4 py-2 rounded-2xl bg-sky-500">+</button>
-                    <span className="mx-4">3</span>
-                    <button className="px-4 py-2 rounded-2xl bg-sky-500">-</button>
-                </div>
+                <AddToCart id={id.toString()} />
             </div>
 
             <img
                 className="col-span-2"
-                src="/images/product 1.png"
-                alt="product 1.png"
+                src={data.image}
+                alt={data.title}
             />
         </div>
     )
