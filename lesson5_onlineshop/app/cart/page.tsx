@@ -1,16 +1,20 @@
+"use client";
+
+import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 import Container from "@/components/Container";
 import CartItem from "@/components/CartItem";
 
-export default async function Cart() {
+export default function Cart() {
+    const { cartItems } = useShoppingCartContext();
+
     return (
         <Container>
             <h1 className="text-right my-4">سبد خرید</h1>
 
             <div className="flex flex-col gap-4">
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {cartItems.map(item =>
+                    <CartItem key={item.id} {...item} />
+                )}
             </div>
 
             <div className="border shadow-md rtl p-4">
