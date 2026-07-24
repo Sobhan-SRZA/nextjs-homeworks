@@ -9,7 +9,7 @@ interface AddToCartProbs {
 export default function AddToCart({
     id
 }: AddToCartProbs) {
-    const { handleIncreaseProductQty, handleDecreaseProductQty, getProductQty } = useShoppingCartContext();
+    const { handleIncreaseProductQty, handleDecreaseProductQty, handleRemoveProduct, getProductQty } = useShoppingCartContext();
 
     return (
         <div>
@@ -25,7 +25,10 @@ export default function AddToCart({
                 >-</button>
             </div>
 
-            <button className="bg-red-500 rounded px-6 py-2 mt-2">
+            <button
+                className="bg-red-500 rounded px-6 py-2 mt-2"
+                onClick={() => handleRemoveProduct(parseInt(id))}
+            >
                 حذف از سبد
             </button>
         </div>
