@@ -1,6 +1,11 @@
 "use client"
 
-import { createContext, useContext, useState } from "react"
+import {
+    createContext,
+    useContext,
+    useEffect,
+    useState
+} from "react"
 
 type CartItem = {
     id: number;
@@ -79,6 +84,18 @@ export default function ShoppingCartContextProvider({ children }: { children: Re
             return currentItems.filter(item => item.id !== id);
         })
     };
+
+    useEffect(() => {
+        // localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        const storedCartItems = localStorage.getItem("cartItems")
+        if (storedCartItems) {
+            setCartItems(JSON.parse(storedCartItems));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }, [cartItems]);
 
     return (
         <ShoppingCartContext.Provider value={{
