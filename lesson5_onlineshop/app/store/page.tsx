@@ -1,23 +1,27 @@
 import Container from "@/components/Container";
 import Pagination from "@/components/Pagination";
 import ProductItem, { ProductItemsPage } from "@/components/ProductItem";
+import Search from "@/components/Search";
 import Link from "next/link";
 
 interface StoreParams {
   params: Promise<{}>;
-  searchParams: Promise<{ page: string; per_pages: string }>;
+  searchParams: Promise<{ page: string; per_pages: string; title: string; }>;
 }
 
 export default async function Store({ searchParams }: StoreParams) {
   const page = (await searchParams).page ?? "1";
   const per_pages = (await searchParams).per_pages ?? "5";
+  const title = (await searchParams).title ?? "";
 
-  const result = await fetch(`http://localhost:3001/products?_page=${page}}&_per_page=${per_pages}`);
+  const result = await fetch(`http://localhost:3001/products?_page=${page}}&_per_page=${per_pages}${title ? `&title=${title}` : ""}`);
   const products = await result.json() as ProductItemsPage;
 
   return (
     <Container>
       <h1 className="text-right py-4">فروشگاه</h1>
+
+      <Search />
 
       <div className="grid grid-cols-4 gap-4">
         {
