@@ -8,6 +8,16 @@ export interface ProductItemProbs {
     description: string;
 }
 
+export interface ProductItemsPage {
+    "first": number | null;
+    "prev": number | null;
+    "next": number | null;
+    "last": number | null;
+    "pages": number;
+    "items": number;
+    "data": ProductItemProbs[];
+}
+
 export default function ProductItem({ image, price, title }: ProductItemProbs) {
     return (
         <div className="shadow-md">
