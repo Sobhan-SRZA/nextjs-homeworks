@@ -28,6 +28,9 @@ export default function Pagination({ pageCount }: PaginationProbs) {
                 previousLabel={"< قبلی"}
                 onPageChange={handlePageClick}
                 renderOnZeroPageCount={null}
+                className="flex gap-4 rtl justify-center mt-8"
+                activeLinkClassName="text-red-600"
+                disabledClassName="text-gray-600"
             />
         </div>
     )
