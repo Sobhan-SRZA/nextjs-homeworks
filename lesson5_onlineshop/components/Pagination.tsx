@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import ReactPaginate from "react-paginate";
 
 interface PaginationProbs {
@@ -9,13 +9,17 @@ interface PaginationProbs {
 
 export default function Pagination({ pageCount }: PaginationProbs) {
     const router = useRouter();
+    const params = useSearchParams();
 
     const handlePageClick = (selectedItem: {
         selected: number;
     }) => {
         const page = selectedItem.selected + 1;
+        const currentParams = new URLSearchParams(params.toString());
 
-        router.push(`/store?page=${page}&per_page=${5}`)
+        currentParams.set("page", `${page}`);
+        currentParams.set("per_page", `${5}`);
+        router.push("/store?" + currentParams.toString());
     };
 
     return (
