@@ -29,8 +29,9 @@ export default function Pagination({ pageCount }: PaginationProbs) {
                 onPageChange={handlePageClick}
                 renderOnZeroPageCount={null}
                 className="flex gap-4 rtl justify-center mt-8"
+                disabledClassName="text-gray-600 cursor-not-allowed"
                 activeLinkClassName="text-red-600"
-                disabledClassName="text-gray-600"
+                pageClassName="cursor-pointer"
             />
         </div>
     )
