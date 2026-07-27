@@ -55,6 +55,7 @@ export default function Cart() {
             });
     }
 
+                console.log("🚀 ~ Cart ~ cartItems:", cartItems)
     return (
         <Container>
             <h1 className="text-right my-4">سبد خرید</h1>
