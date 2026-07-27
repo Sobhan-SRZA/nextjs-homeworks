@@ -1,91 +1,100 @@
 {
-    "products": [
-        {
-            "id": "1",
-            "title": "محصول 1",
-            "image": "/images/product 1.png",
-            "price": 1200,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "2",
-            "title": "محصول 2",
-            "image": "/images/product 2.png",
-            "price": 600,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "3",
-            "title": "محصول 3",
-            "image": "/images/product 3.png",
-            "price": 31231,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "4",
-            "title": "محصول 4",
-            "image": "/images/product 4.png",
-            "price": 1200,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "5",
-            "title": "محصول 5",
-            "image": "/images/product 1.png",
-            "price": 1200,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "6",
-            "title": "محصول 6",
-            "image": "/images/product 2.png",
-            "price": 600,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "7",
-            "title": "محصول 7",
-            "image": "/images/product 3.png",
-            "price": 31231,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "8",
-            "title": "محصول 8",
-            "image": "/images/product 4.png",
-            "price": 1200,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "9",
-            "title": "محصول 7",
-            "image": "/images/product 3.png",
-            "price": 31231,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        },
-        {
-            "id": "10",
-            "title": "محصول 10",
-            "image": "/images/product 4.png",
-            "price": 1200,
-            "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
-        }
-    ],
-    "discounts": [
-        {
-            "id": "1",
-            "code": "DIJC54",
-            "percentage": 10
-        },
-        {
-            "id": "2",
-            "code": "A56SDAC",
-            "percentage": 20
-        },
-        {
-            "id": "3",
-            "code": "KHJASC635",
-            "percentage": 30
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "title": "محصول 1",
+      "image": "/images/product 1.png",
+      "price": 1200,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "2",
+      "title": "محصول 2",
+      "image": "/images/product 2.png",
+      "price": 600,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "3",
+      "title": "محصول 3",
+      "image": "/images/product 3.png",
+      "price": 31231,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "4",
+      "title": "محصول 4",
+      "image": "/images/product 4.png",
+      "price": 1200,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "5",
+      "title": "محصول 5",
+      "image": "/images/product 1.png",
+      "price": 1200,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "6",
+      "title": "محصول 6",
+      "image": "/images/product 2.png",
+      "price": 600,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "7",
+      "title": "محصول 7",
+      "image": "/images/product 3.png",
+      "price": 31231,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "8",
+      "title": "محصول 8",
+      "image": "/images/product 4.png",
+      "price": 1200,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "9",
+      "title": "محصول 7",
+      "image": "/images/product 3.png",
+      "price": 31231,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "10",
+      "title": "محصول 10",
+      "image": "/images/product 4.png",
+      "price": 1200,
+      "description": "ندسشسئزجگمئس ئنحسدیسند نیسدششن دمخ یسدمن"
+    },
+    {
+      "id": "9T3uRZKUgh8",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOiPAsCkiA4xlnQt5tfif_LhTdQ7Qpm4jdiw2ie-V5LyrC-ugpV6-EIUl9&s=10",
+      "title": "کفش نیو شالانس",
+      "price": "32000",
+      "description": "Shoose is Available Size 36 to 44 Free home delivery\nبهترین کفشی که میتونی بخری"
+    }
+  ],
+  "discounts": [
+    {
+      "id": "1",
+      "code": "DIJC54",
+      "percentage": 10
+    },
+    {
+      "id": "2",
+      "code": "A56SDAC",
+      "percentage": 20
+    },
+    {
+      "id": "3",
+      "code": "KHJASC635",
+      "percentage": 30
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json",
+  "orders": []
 }
