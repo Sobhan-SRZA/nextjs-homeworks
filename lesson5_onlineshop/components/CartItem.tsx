@@ -8,7 +8,7 @@ import AddToCart from "./AddToCart";
 import axios from "axios";
 
 interface CartItemProbs {
-    id: number;
+    id: string;
     qty: number;
 }
 
