@@ -8,16 +8,16 @@ import {
 } from "react"
 
 type CartItem = {
-    id: number;
+    id: string;
     qty: number;
 }
 
 type ShoppingCartContextType = {
     cartItems: CartItem[];
-    handleIncreaseProductQty: (id: number) => void;
-    handleDecreaseProductQty: (id: number) => void;
-    handleRemoveProduct: (id: number) => void;
-    getProductQty: (id: number) => number;
+    handleIncreaseProductQty: (id: string) => void;
+    handleDecreaseProductQty: (id: string) => void;
+    handleRemoveProduct: (id: string) => void;
+    getProductQty: (id: string) => number;
     cartTotalQty: number;
 }
 
@@ -32,11 +32,11 @@ export default function ShoppingCartContextProvider({ children }: { children: Re
 
     const cartTotalQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0);
 
-    const getProductQty = (id: number) => {
+    const getProductQty = (id: string) => {
         return cartItems.find(item => item.id === id)?.qty || 0;
     };
 
-    const handleIncreaseProductQty = (id: number) => {
+    const handleIncreaseProductQty = (id: string) => {
         setCartItems(currentItems => {
             let isNotProductExist = !currentItems.some(item => item.id === id);
             if (isNotProductExist) {
@@ -59,7 +59,7 @@ export default function ShoppingCartContextProvider({ children }: { children: Re
         })
     };
 
-    const handleDecreaseProductQty = (id: number) => {
+    const handleDecreaseProductQty = (id: string) => {
         setCartItems(currentItems => {
             let isLastOne = currentItems.find(item => item.id === id)?.qty === 1;
             if (isLastOne) {
@@ -79,14 +79,13 @@ export default function ShoppingCartContextProvider({ children }: { children: Re
         })
     };
 
-    const handleRemoveProduct = (id: number) => {
+    const handleRemoveProduct = (id: string) => {
         setCartItems(currentItems => {
             return currentItems.filter(item => item.id !== id);
         })
     };
 
     useEffect(() => {
-        // localStorage.setItem("cartItems", JSON.stringify(cartItems));
         const storedCartItems = localStorage.getItem("cartItems")
         if (storedCartItems) {
             setCartItems(JSON.parse(storedCartItems));
