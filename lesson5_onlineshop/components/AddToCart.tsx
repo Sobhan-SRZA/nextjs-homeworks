@@ -21,18 +21,18 @@ export default function AddToCart({
             <div className="mt-4">
                 <button
                     className="px-4 py-2 rounded-2xl bg-sky-500"
-                    onClick={() => handleIncreaseProductQty(parseInt(id))}
+                    onClick={() => handleIncreaseProductQty(id)}
                 >+</button>
-                <span className="mx-4">{getProductQty(parseInt(id))}</span>
+                <span className="mx-4">{getProductQty(id)}</span>
                 <button
                     className="px-4 py-2 rounded-2xl bg-sky-500"
-                    onClick={() => handleDecreaseProductQty(parseInt(id))}
+                    onClick={() => handleDecreaseProductQty(id)}
                 >-</button>
             </div>
 
             <button
                 className="bg-red-500 rounded px-6 py-2 mt-2"
-                onClick={() => handleRemoveProduct(parseInt(id))}
+                onClick={() => handleRemoveProduct(id)}
             >
                 حذف از سبد
             </button>
